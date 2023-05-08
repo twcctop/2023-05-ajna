@@ -15,7 +15,7 @@ import 'src/interfaces/pool/commons/IPoolErrors.sol';
 
 import '../utils/ContractNFTRecipient.sol';
 import '../utils/ContractNFTSpender.sol';
-
+// import forge-std/src/console.sol;
 abstract contract PositionManagerERC20PoolHelperContract is ERC20HelperContract {
 
     PositionManager  internal _positionManager;
@@ -120,7 +120,7 @@ contract PositionManagerERC20PoolTest is PositionManagerERC20PoolHelperContract 
      *              Attempts to memorialize when lps aren't allowed to be transfered.
      *              Attempts to set position owner when not owner of the LP.
      */
-    function testMemorializePositions() external {
+    function testMemorializePositionstt() external {
         address testAddress = makeAddr("testAddress");
         uint256 mintAmount  = 10000 * 1e18;
 
@@ -158,6 +158,9 @@ contract PositionManagerERC20PoolTest is PositionManagerERC20PoolHelperContract 
         IPositionManagerOwnerActions.MemorializePositionsParams memory memorializeParams = IPositionManagerOwnerActions.MemorializePositionsParams(
             tokenId, indexes
         );
+
+        //log tokenid  indexes
+        // console.log("test %s",tokenId);
 
         // should revert if access hasn't been granted to transfer LP
         vm.expectRevert(IPoolErrors.NoAllowance.selector);

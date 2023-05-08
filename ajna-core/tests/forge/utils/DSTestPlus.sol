@@ -3,6 +3,7 @@ pragma solidity 0.8.14;
 
 import '@std/Test.sol';
 import '@std/Vm.sol';
+import '@std/console.sol';
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 import '@openzeppelin/contracts/utils/structs/EnumerableSet.sol';

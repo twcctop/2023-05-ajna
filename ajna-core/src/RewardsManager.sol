@@ -222,7 +222,7 @@ contract RewardsManager is IRewardsManager, ReentrancyGuard {
         stakeInfo.stakingEpoch = uint96(curBurnEpoch);
 
         // initialize last time interaction at staking epoch
-        stakeInfo.lastClaimedEpoch = uint96(curBurnEpoch);
+        stakeInfo.lastClaimedEpoch = uint96(curBurnEpoch);    // todo 是否考虑上次stake 情况？ 
 
         uint256[] memory positionIndexes = positionManager.getPositionIndexes(tokenId_);
 
@@ -812,7 +812,7 @@ contract RewardsManager is IRewardsManager, ReentrancyGuard {
         // check that rewards earned isn't greater than remaining balance
         // if remaining balance is greater, set to remaining balance
         uint256 ajnaBalance = IERC20(ajnaToken).balanceOf(address(this));
-        if (rewardsEarned_ > ajnaBalance) rewardsEarned_ = ajnaBalance;
+        if (rewardsEarned_ > ajnaBalance) rewardsEarned_ = ajnaBalance;  //不理解 
 
         if (rewardsEarned_ != 0) {
             // transfer rewards to sender

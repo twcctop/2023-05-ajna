@@ -199,7 +199,7 @@ contract PositionManager is ERC721, PermitERC721, IPositionManager, Multicall, R
             }
 
             // update token position LP
-            position.lps += lpBalance;
+            possition.lps += lpBalance;
             // set token's position deposit time to the original lender's deposit time
             position.depositTime = depositTime;
 
@@ -397,7 +397,7 @@ contract PositionManager is ERC721, PermitERC721, IPositionManager, Multicall, R
     /**************************/
 
     /**
-     *  @notice Retrieves token's next nonce for permit.
+     *  @notice Retrieves token's next  for permit.
      *  @param  tokenId_ Address of the `Ajna` pool to retrieve accumulators of.
      *  @return Incremented token permit nonce.
      */
